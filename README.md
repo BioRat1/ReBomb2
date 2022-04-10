@@ -4,7 +4,9 @@ Newest version of the ReBomb: TikTok Mass Report Bot
 Made by: Sadyyn
 Follow Me On Instagram: https://www.instagram.com/b1orat/
 
-TUTORIAL FOR THIS IS ON MY YOUTUBE CHANNEL:
+TUTORIAL FOR THIS IS ON MY YOUTUBE CHANNEL: https://youtu.be/MdQrD_H8ZoI
+
+
 
 
 THIS DOES NOT GUARANTEE TO TAKE A CHANNEL DOWN, just sends multiple reports
