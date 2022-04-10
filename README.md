@@ -1,4 +1,4 @@
-# ReBomb2
+# ReBomb2 - TikTok Mass Report Bot
 Newest version of the ReBomb: TikTok Mass Report Bot
 
 Made by: Sadyyn
