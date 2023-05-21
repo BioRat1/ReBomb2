@@ -1,5 +1,5 @@
 # ReBomb2 - TikTok Mass Report Bot
-
+https://www.tiktok.com/@fenix90oficial
 THIS DOES NOT GAURANTEE A BAN. STILL UP TO TIKTOK, THIS JUST INCREASES THE CHANCES OF THE RIGHT PERSON SEEING THE REPORT OR CONFUSING THE AI THAT SUPPOSEDLY CONTROLS THE REPORTING.
 
 UPDATE: PROXIES HAVE NOW BEEN ADDED! DOWNLOAD THE ZIP FILE "REBOMB2APPWITHPROXIES" Scroll down to the "Rebomb2App" application inside the folder, make a shortcut if you want to and it should start!
