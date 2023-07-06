@@ -7,7 +7,8 @@ UPDATE: PROXIES HAVE NOW BEEN ADDED! DOWNLOAD THE ZIP FILE "REBOMB2APPWITHPROXIE
 Newest version of the ReBomb: TikTok Mass Report Bot
 
 Made by: BioRat
-Follow Me On Instagram: https://www.instagram.com/b1orat/
+Follow Me On Instagram: 
+https://instagram.com/biorat1?igshid=MzNlNGNkZWQ4Mg==
 
 NEWEST TUTORIAL WITH ADDED PROXIES: https://youtu.be/J5nxUckD7Wk
 
