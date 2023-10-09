@@ -1,13 +1,13 @@
-import customtkinter as tk
+
 import requests
 from requests.sessions import session
 from requests.exceptions import ProxyError
-import json
-import webbrowser
 import os
+import pyfiglet.fonts
+import time
+import fp.fp as FreeProxy
 import sys
-
-#Code created by BioRat
+import ipaddress
 
 # https://stackoverflow.com/questions/31836104/pyinstaller-and-onefile-how-to-include-an-image-in-the-exe-file
 def resource_path(relative_path):
@@ -22,94 +22,89 @@ def resource_path(relative_path):
 
 from fp.fp import FreeProxy
 
+pyfiglet.FigletFont.DEFAULT_FONT_PATH = 'C:\\Users\\Strai\\OneDrive\\Documents\\C_Projects\\Rebomb2AYOP\\build\\ReBomb2App\\pyfiglet\\fonts'
 
 s = session()
-proxy = FreeProxy(country_id=['US','GB','BR','AS','NA']).get()
-
+fproxy = FreeProxy(country_id=['US','GB','BR','AS','NA']).get()
 proxies = {
-    'http': proxy,
-    'https': proxy
-}
+            'http': fproxy,
+             'https': fproxy
+        }
 
-tk.set_appearance_mode("dark")
-tk.set_default_color_theme(resource_path("Rembombedit.json"))
+def report(): #Otherwise, use one of the free proxy servers
 
-
-root = tk.CTk()
-root.geometry("500x500")
-root.iconbitmap(resource_path("download.ico"))
-root.title("Rebomb2")
-
-url = ""
-
-def open_paypal():
-    webbrowser.open_new("https://www.paypal.com/donate/?hosted_button_id=5592N2YS8PAEA")
-
-def text_insert():
-    report()
-    output = ["Using proxy: \n" + proxy, "Reported :D",  ]
-    outputlist = ''
-    output.append(outputlist)
-    entry2.insert(tk.END, output, "\n")
-    return output
-
-def report():
+    url_to_report = url
     
-    global url
-    url_to_report = entry.get(0.0, "end-1c") # get the text from the entry widget
+    try:
+        response = s.post(url_to_report, proxies=proxies)
+        while True:
+         print(response.text)
+         used_proxy = ["Using proxy: \n" + (str(proxies)), "Reported :D",  ]
+         print(used_proxy)
+         time.sleep(60)     
+    except Exception:
+        print("Proxy Error: Restarting")    
+        pass        
+        report()
+
+def Own_Proxy():
+    url_to_report = url
     
-    if url_to_report:
+    
+    Own_Proxy2 = input("Welp, enter your proxy here. ex:20.206.106.192:80: ")
+    print("Checking to see if the proxy works")
+    proxy_string = Own_Proxy2
+    your_proxy = {"http": proxy_string, "https": proxy_string}
+    
+    
+    try:
+        response1 = s.post(url_to_report, proxies=your_proxy)
         
-        url = url_to_report
-        
-        entry.delete(0.0, tk.END) # delete the text from the entry widget
-        try:
-            response = s.post(url, proxies=proxies) # use the text as the URL
-        
-            print(response.text)
-        
-        except ProxyError:
-            errortext = "Proxy Error: restarting"
-            entry2.insert(tk.INSERT, errortext)
-            pass # handle proxy error if needed
+        while True:
+         print(response1.text)
+         used_proxy = ["Using proxy: \n" + your_proxy, "Reported :D",  ]
+         print(used_proxy)
+         time.sleep(60)
             
+
+    except Exception:
+            print("Proxy not working. Using one of ours")
+            report()
+            
+my_banner = pyfiglet.figlet_format("Robomb2")
+print(my_banner)
+print("Created by BioRat\n tutorial for this is on my youtube channel: BioRat11")
+url = input("Insert the Inspect Element URL here: ")
+Own_Proxy_input = input("Would you like to add your own proxy? Type 'yes' or 'no': ").lower()
+if Own_Proxy_input == "no":
+    report()
+else:
+    Own_Proxy()
+
+
+
+
+
+       
+
+
     
-    root.after(60000, text_insert,)    
+    
+
+
+
+            
+                 
+            
+
+
    
-        
+   
+
+
 
 
     
-frame = tk.CTkFrame(master=root)
-frame.pack(pady=20, padx=60, fill="both", expand=True)
-
-label = tk.CTkLabel(master=frame, text="Rebomb2", font=("Terminal", 24))
-label.pack(pady=12, padx=10)
-
-entry = tk.CTkTextbox(root, font=("terminal", 12), bg_color="#000000")
-entry.pack(pady=12, padx=10, fill=tk.BOTH, expand=True,)
-
-entry2 = tk.CTkTextbox(root, font=("Terminal", 12))
-entry2.pack(pady=12, padx=10, fill=tk.BOTH, expand=True,)
-
-placeholder_text = "Enter the request URL from Inspect Element:"
-entry.insert(tk.INSERT, placeholder_text)
-
-def delete_placeholder_text(event):
-    if entry.get(0.0, "end-1c") == placeholder_text:
-        entry.delete(0.0, tk.END)
 
 
 
-entry.bind("<Button-1>", delete_placeholder_text)
-entry.bind("<Key>", delete_placeholder_text)
-
-
-
-button = tk.CTkButton(master=frame, text="Report", command=text_insert)
-button.pack(pady=12, padx=10)
-donatebutton = tk.CTkButton(master=frame, text="Donate", command=open_paypal)
-donatebutton.pack(pady=12, padx=10)
-
-
-root.mainloop()
