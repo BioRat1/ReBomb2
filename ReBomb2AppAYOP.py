@@ -73,7 +73,6 @@ def Own_Proxy():
             
 my_banner = pyfiglet.figlet_format("Robomb2")
 print(my_banner)
-print("Created by BioRat\n tutorial for this is on my youtube channel: BioRat11")
 url = input("Insert the Inspect Element URL here: ")
 Own_Proxy_input = input("Would you like to add your own proxy? Type 'yes' or 'no': ").lower()
 if Own_Proxy_input == "no":
